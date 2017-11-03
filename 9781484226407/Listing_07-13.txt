@@ -1,0 +1,16 @@
+<form id="collection-form" method="get" action="{{ collection.url }}{% if current_tags %}/{{ current_tags | join: '+' }}{% endif %}">
+
+...
+
+<label>Filter by...</label>
+<ul>
+  {% for tag in collection.tags %}
+    <li>
+      {% if current_tags contains tag %}
+        {{ '&#9745;' | append: tag | link_to_remove_tag: tag }}
+      {% else %}
+        {{ '&#9744;' | append: tag | link_to_add_tag: tag }}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

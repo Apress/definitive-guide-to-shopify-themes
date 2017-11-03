@@ -1,0 +1,5 @@
+// assets/alerts.js.liquid
+function outOfStockError() {
+  alert({{ ‘cart.messages.out_of_stock_message_html’ | t | json }});
+}
+

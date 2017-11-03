@@ -1,0 +1,5 @@
+/* assets/styles.css.liquid */
+body {
+  background-color: {{ settings.body_background_color }};
+}
+

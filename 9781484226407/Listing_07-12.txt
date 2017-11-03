@@ -1,0 +1,22 @@
+...
+
+<button type="submit">Update</button>
+
+<hr />
+
+<label>Category</label>
+<ul>
+  {%- for collection_option in collections -%}
+    <li>
+      {%- if collection.handle == collection_option.handle -%}
+        {{ collection_option.title | escape }}
+      {%- else -%}
+        <a href="{{ collection_option.url }}?view={{ collection-view }}&sort_by={{ collection.sort_by }}">
+          {{ collection_option.title | escape }}
+        </a>
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+</ul>
+
+...

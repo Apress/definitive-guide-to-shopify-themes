@@ -1,0 +1,6 @@
+$ unzip ~/Downloads/example-theme.zip -d /projects/example-theme
+$ cd /projects/example-theme
+$ ls
+assets        config        layout        locales
+snippets      templates
+

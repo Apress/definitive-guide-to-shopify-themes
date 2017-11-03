@@ -1,0 +1,12 @@
+<div>
+  <a href="{{ product.url }}">
+    <img src="{{ product.featured_image | product_img_url: '200x200', scale: 2, crop: 'center' }}" alt="{{ product.title | escape }}" />
+  </a>
+
+  <div>
+    <h6>{{ product.title | escape }}</h6>
+    <p>{{ product.vendor | escape }}</p>
+  </div>
+  
+  <h6>{{ product.price | money }}</h6>  
+</div>

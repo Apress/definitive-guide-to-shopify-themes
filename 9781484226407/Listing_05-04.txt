@@ -1,0 +1,22 @@
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "id": "primary_link_list",
+      "type": "link_list",
+      "label": "Primary navigation menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}
+<nav>
+  ...
+  
+  {%- assign primary_link_list = linklists[section.settings.primary_link_list] -%}
+  {%- unless primary_link_list == blank -%}
+  <ul>
+    {%- for link in primary_link_list.links -%}
+    ...
+

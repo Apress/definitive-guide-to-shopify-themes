@@ -1,0 +1,7 @@
+$ cd /project/example-theme
+$ git checkout -b new-feature
+Switched to a new branch 'new-feature'
+$ sed -i '' 's/[master theme ID]/[new theme ID]/g' config.yml
+$ theme watch
+[development] Watching for changes on host example.myshopify.com
+

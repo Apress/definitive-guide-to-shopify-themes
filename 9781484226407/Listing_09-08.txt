@@ -1,0 +1,8 @@
+...
+<li>
+  <a href=“/cart/”>
+    {{ ‘cart.links.checkout_now_text’ | t }}
+  </a>
+</li>
+...
+

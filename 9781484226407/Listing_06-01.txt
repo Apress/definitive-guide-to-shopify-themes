@@ -1,0 +1,21 @@
+<main>    
+    <div id="column-left">    
+      {%- if product.images.size > 0 -%}
+        <img src="{{ image | product_img_url: '480x480', scale: 2, crop: 'center' }}" alt="{{ product.title | escape }}" />
+
+        {%- if product.images.size > 0 -%}
+        <ul id="thumbnails">
+          {%- for image in product.images -%}
+            <li>
+              <a href="{{ image | product_img_url: 'master' }}" target="_blank">
+                <img src="{{ image | product_img_url: '240x240', scale: 2, crop: 'center' }}" alt="{{ product.title | escape }}" />
+              </a>
+            </li>  
+          {%- endfor -%}
+        </ul>
+        {%- endif -%}        
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+</main>

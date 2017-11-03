@@ -1,0 +1,19 @@
+<ul role="tablist">
+  ...
+  {%- unless product.metafields.extra.garment_care == blank -%}
+  <li>
+    <a href="#garment-care" role="tab">Garment Care</a>
+  </li>
+  {%- endunless -%}
+  ...
+</ul>
+
+<div class="tab-content">
+  ...
+  {%- unless product.metafields.extra.garment_care == blank -%}
+  <div role="tabpanel" class="tab-pane" id="garment-care">
+  	{{ product.metafields.extra.garment_care }}
+  </div>
+  {%- endunless -%}
+  ...
+</div>

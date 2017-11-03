@@ -1,0 +1,15 @@
+...
+
+{%- paginate collection.products by 12 -%}
+<section>
+  {%- if collection-view == 'grid' -%}  
+    {%- for product in collection.products -%}
+      {%- include 'product' -%}
+    {%- endfor -%}
+  {%- else  -%}
+    {%- for product in collection.products -%}
+      {%- include 'product-list' -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  ...

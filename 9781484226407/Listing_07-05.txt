@@ -1,0 +1,20 @@
+<main>
+  
+    <h1>{{ collection.title | escape }}</h1>
+
+    <!-- @TODO: Add controls for sorting, filtering et cetera here. -->
+    <aside></aside>
+      
+    {%- paginate collection.products by 12 -%}
+    <section>
+      {%- for product in collection.products -%}
+        {%- include 'product' -%}
+      {%- endfor -%}
+
+      {%- if paginate.pages > 1 -%}
+        {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+      {%- endif -%}
+    </section>
+    {%- endpaginate -%}
+
+</main>

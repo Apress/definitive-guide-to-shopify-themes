@@ -1,0 +1,34 @@
+<main>
+  <form id="collection-form" method="get" action="{{ collection.url }}">
+    <h1>{{ collection.title | escape }}</h1>
+
+    <aside>
+      {%- assign current_sort_by = collection.sort_by | default: collection.default_sort_by  -%}
+      <label for="sort_by">Sort by...</label>
+      <select id="sort_by" name="sort_by">
+        <option value="manual" {% if current_sort_by == 'manual' %}selected="selected"{% endif %}>Featured</option>
+        <option value="price-ascending" {% if current_sort_by == 'price-ascending' %}selected="selected"{% endif %}>Price: Low to High</option>
+        <option value="price-descending" {% if current_sort_by == 'price-descending' %}selected="selected"{% endif %}>Price: High to Low</option>
+        <option value="title-ascending" {% if current_sort_by == 'title-ascending' %}selected="selected"{% endif %}>A-Z</option>
+        <option value="title-descending" {% if current_sort_by == 'title-descending' %}selected="selected"{% endif %}>Z-A</option>
+        <option value="created-ascending" {% if current_sort_by == 'created-ascending' %}selected="selected"{% endif %}>Oldest to Newest</option>
+        <option value="created-descending" {% if current_sort_by == 'created-descending' %}selected="selected"{% endif %}>Newest to Oldest</option>
+        <option value="best-selling" {% if current_sort_by == 'best-selling' %}selected="selected"{% endif %}>Best Selling</option>
+      </select>
+
+      <button type="submit">Update</button>
+    </aside>
+      
+    {%- paginate collection.products by 12 -%}
+    <section>
+      {%- for product in collection.products -%}
+        {%- include 'product' -%}
+      {%- endfor -%}
+
+      {%- if paginate.pages > 1 -%}
+        {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+      {%- endif -%}
+    </section>
+    {%- endpaginate -%}
+  </form>
+</main>

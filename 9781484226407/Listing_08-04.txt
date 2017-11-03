@@ -1,0 +1,9 @@
+...
+</main>
+
+{%- capture captured_js -%}
+  {{- captured_js -}}
+  <script type="text/javascript">
+    fetchShippingRateEstimate('#cart-shipping', {{ customer.default_address | json }});
+  </script>
+{%- endcapture -%}

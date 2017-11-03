@@ -1,0 +1,19 @@
+...
+window.fetchShippingRateEstimate = function(target, shipping_address) {
+  if(!shipping_address) return;
+  $.ajax({
+    url: '/cart/shipping_rates.json',
+    data: $.serialize({ shipping_address: shipping_address }),
+    success: function(shipping_rates) {
+      if(shipping_rates.length === 0) return;
+      var shipping_rate = shipping_rates[0];
+      $(target).html(
+        '<em>' +
+          shipping_rate.name + ' ($' + shipping_rate.price + ') to ' +
+          shipping_address.city + ', ' + shipping_address.province +
+        '</em>'
+      );
+    }
+  });
+};
+...

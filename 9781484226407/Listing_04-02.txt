@@ -1,0 +1,22 @@
+{%- assign p1s = -1 -%}{%- assign p2s = -1 -%}{%- assign p3s = -1 -%}{%- assign p4s = -1 -%}
+{%- for cp in collections.all.products -%}
+{%- unless cp.id == product.id -%}
+{%- assign cp_score = 0 -%}
+{%- for tag in product.tags -%}{%- for rt in cp.tags -%}
+{%- if tag == rt -%}
+{%- assign cp_score = cp_score | plus: 1 -%}
+{%- endif -%}
+{%- endfor -%}{%- endfor -%}
+{%- if cp_score > p1s -%}{%- assign p1s = cp_score -%}{%- assign p1h = cp.handle -%}
+{%- elsif cp_score > p2s -%}{%- assign p2s = cp_score -%}{%- assign p2h = cp.handle -%}
+{%- elsif cp_score > p3s -%}{%- assign p3s = cp_score -%}{%- assign p3h = cp.handle -%}
+{%- elsif cp_score > p4s -%}{%- assign p4s = cp_score -%}{%- assign p4h = cp.handle -%}
+{%- endif -%}
+{%- endunless -%}
+{%- endfor -%}
+<div class="row">
+{%- for rp in collections.all.products -%}{%- if rp.handle == p1h or rp.handle == p2h or rp.handle == p3h or rp.handle == p4h -%}
+<div class="col-md-4">{%- include 'product' with rp -%}</div>
+{%- endif -%}{%- endfor -%}
+</div>
+

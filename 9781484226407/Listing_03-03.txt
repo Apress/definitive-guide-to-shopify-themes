@@ -1,0 +1,6 @@
+$ cd /projects/example-theme
+$ theme watch
+[development] Watching for changes on host example.myshopify.com
+[development] Received Update event of layout/theme.liquid
+[development] Successfully performed Update operation for file layout/theme.liquid to example.myshopify.com
+

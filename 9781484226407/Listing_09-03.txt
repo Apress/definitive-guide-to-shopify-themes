@@ -1,0 +1,21 @@
+<ul class="slides">
+  {% if settings.show_slide_1 %}
+    <li>
+      <img src="{{ 'image_slide_1.png' | asset_url }}" />
+      {{ settings.caption_slide_1 | escape }}
+    </li>
+  {% endif %}
+  {% if settings.show_slide_2 %}
+    <li>
+      <img src="{{ 'image_slide_2.png' | asset_url }}" />
+      {{ settings.caption_slide_2 | escape }}
+    </li>
+  {% endif %}
+  {% if settings.show_slide_3 %}
+    <li>
+      <img src="{{ 'image_slide_3.png' | asset_url }}" />
+      {{ settings.caption_slide_3 | escape }}
+    </li>
+  {% endif %}
+</ul>
+

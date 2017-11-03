@@ -1,0 +1,47 @@
+alculated related products using similar tags as a simple scoring system.
+{%- endcomment -%}
+
+{%- assign product_1_score = -1 -%}
+{%- assign product_2_score = -1 -%}
+{%- assign product_3_score = -1 -%}
+{%- assign product_4_score = -1 -%}
+
+{%- for current_product in collections.all.products -%}
+  {%- unless current_product.id == product.id -%}
+
+  {%- assign current_product_score = 0 -%}
+
+  {%- for tag in product.tags -%}
+    {%- for related-tag in current_product.tags -%}
+      {%- if tag == related-tag -%}
+        {%- assign current_product_score = current_product_score | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+
+  {%- if current_product_score > product_1_score -%}
+    {%- assign product_1_score = current_product_score -%}
+    {%- assign product_1_handle = current_product.handle -%}
+  {%- elsif current_product_score > product_2_score -%}
+    {%- assign product_2_score = current_product_score -%}
+    {%- assign product_2_handle = current_product.handle -%}
+  {%- elsif current_product_score > product_3_score -%}
+    {%- assign product_3_score = current_product_score -%}
+    {%- assign product_3_handle = current_product.handle -%}
+  {%- elsif current_product_score > product_4_score -%}
+    {%- assign product_4_score = current_product_score -%}
+    {%- assign product_4_handle = current_product.handle -%}
+  {%- endif -%}
+
+  {%- endunless -%}
+{%- endfor -%}
+<div class="row">
+{%- for related-product in collections.all.products -%}
+  {%- if related-product.handle == product_1_handle or related-product.handle == product_2_handle or related-product.handle == product_3_handle or related-product.handle == product_4_handle -%}
+    <div class="col-md-4">
+      {%- include 'product' with related-product -%}
+    </div>
+  {%- endif -%}
+{%- endfor -%}
+</div>
+

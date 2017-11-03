@@ -1,0 +1,5 @@
+$(document).on('variant.changed currency.changed', function(e, variant, currency) {
+  var formattedPrice = Currency.format(variant.price, currency);
+  $('[data-variant-price]').text(formattedPrice);
+});
+

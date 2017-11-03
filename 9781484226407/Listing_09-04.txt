@@ -1,0 +1,14 @@
+<ul class="slides">
+  {% for i in (1..3) %}
+    {% capture setting_slide_show %}show_slide_{{i}}{% endcapture %}
+    {% capture setting_slide_image %}image_slide_{{i}}.png{% endcapture %}
+    {% capture setting_slide_title %}caption_slide_{{i}}{% endcapture %}
+    {% if settings[setting_slide_show] %}
+      <li>
+        <img src="{{ setting_slide_image | asset_url }}" />
+        {{ settings[setting_slide_title] | escape }}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+

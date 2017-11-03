@@ -1,0 +1,6 @@
+<header>
+  {% if settings.display_site_banner %}
+    {% include ‘site-banner’ %}
+  {% endif %}
+</header>
+

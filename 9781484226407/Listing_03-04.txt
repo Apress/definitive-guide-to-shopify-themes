@@ -1,0 +1,7 @@
+$ cd /projects/example-theme
+$ git init .
+Initialized empty Git repository in /projects/example- theme/.git/
+$ echo "config.yml" > .gitignore
+$ git add .
+$ git commit -m "Initial commit."
+

@@ -1,0 +1,5 @@
+    ...
+    {{- 'theme.js' | asset_url | script_tag -}}
+    {{- captured_js -}}
+  </body>
+</html>

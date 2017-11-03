@@ -1,0 +1,19 @@
+  ...
+  <tfoot>
+    <tr>
+      <td colspan="3"></td>
+      <td><strong>{{ cart.total_price | money }}</strong></td>
+    </tr>
+    <tr>
+      <td id="cart-shipping-estimate" colspan="4">
+        <em>Shipping and taxes calculated during checkout</em>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <input type="submit" name="update" value="Update" />
+        <input type="submit" name="checkout" value="Proceed to checkout" />
+      </td>
+    </tr>
+  </tfoot>
+  ...

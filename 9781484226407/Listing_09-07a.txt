@@ -1,0 +1,6 @@
+...
+<li>
+  <a href=“/checkout/”>Checkout Now</a>
+</li>
+...
+

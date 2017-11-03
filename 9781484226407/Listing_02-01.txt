@@ -1,0 +1,9 @@
+{% if collection.products.size > 0 %}
+  <ul>
+    {% for product in collection.products %}
+      <li><a href="{{ product.url }}">{{ product.title | upcase }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No products in collection!</p>
+{% endif %}

@@ -1,0 +1,14 @@
+<main>
+
+  <div id="column-left">
+    ...
+  </div>
+
+  <div id="column-right">
+    ...
+  </div>
+  
+  <h3>You may also like</h3>
+  {%- include 'related-products' -%}
+
+</main>

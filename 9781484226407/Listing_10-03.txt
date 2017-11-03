@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include Static CSS -->
+  {{ 'main.css' | asset_url | stylesheet_tag }}
+  <!-- Dynamic CSS -->
+  <style>
+    body {
+      bgcolor: {{ settings.bgcolor | default: '#ffffff' }};
+} </style>
+  <!-- Include Javascripts -->
+  {{ 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min. |
+script_tag }}

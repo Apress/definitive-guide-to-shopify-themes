@@ -1,0 +1,23 @@
+<ul role="tablist">
+  <li>
+    <a href="#description" role="tab">Description</a>
+  </li>
+  <li>
+    <a href="#shipping" role="tab">Shipping</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div id="description" role="tabpanel" class="active">
+  	{{ product.description }}
+  </div>
+  <div role="tabpanel" class="tab-pane" id="shipping">
+    <p>
+      Orders placed before 4pm are shipped the same day.
+      The table below shows approximate shipping times using our standard shipping service.
+    </p>
+    <table>
+      ...
+    </table>
+  </div>  
+</div>

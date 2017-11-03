@@ -1,0 +1,35 @@
+{%- assign RELATED_PRODUCTS_LIMIT = 4 -%}
+{%- if product.metafields.theme.related_products != blank -%}
+  
+  {%- assign related_product_handles = product.metafields.theme.related_products | split: ',' -%}
+  {%- for related_product_handle in related_product_handles -%}
+    ... render products from metafield...
+  {%- endfor -%}
+{%- else -%}
+
+  {%- assign related_collection_handle = product.handle | append: '-related' -%}
+  {%- assign related_collection = collections[related_collection_handle] -%}
+  {%- if related_collection and related_collection.products.size > 0 %}
+    {%- for related_product in related_collection.products limit: RELATED_PRODUCTS_LIMIT -%}
+      ... render products from collection...
+    {%- endfor -%}
+  {%- else -%}
+
+    {%- assign related_collection = nil -%}
+    {%- for collection in product.collections -%}
+      {%- unless collection.handle == 'all' -%}
+      {%- if related_collection == blank or collection.products.size > related_collection.products.size -%}
+        {%- assign related_collection = collection -%}
+        {%- if related_collection.products.size > 5 -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- endunless -%}
+    {%- endfor -%}
+
+    {%- for related_product in related_collection.products limit: RELATED_PRODUCTS_LIMIT -%}
+      ... render products from collection...
+    {%- endfor -%}
+
+  {%- endif -%}
+{%- endif -%}

@@ -1,0 +1,6 @@
+{
+  "type": "checkbox",
+  "id": "favicon_enable",
+  "label": "Use [custom icon](https://en.wikipedia.org/wiki/Favicon)"
+}
+

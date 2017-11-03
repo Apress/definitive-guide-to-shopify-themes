@@ -1,0 +1,21 @@
+<ul role="tablist">
+  ...
+  {%- if product.handle == 'foraker-canvas-coat' -%}
+  <li>
+    <a href="#garment-care" role="tab">Garment Care</a>
+  </li>
+  {%- endif -%}
+  ...
+</ul>
+
+<div class="tab-content">
+  ...
+  {%- if product.handle == 'foraker-canvas-coat' -%}
+  <div role="tabpanel" class="tab-pane" id="garment-care">
+  	<p>
+      Always store in a dry, well-ventilated area.
+  	</p>
+  </div>
+  {%- endif -%}
+  ...
+</div>

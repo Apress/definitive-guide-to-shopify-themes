@@ -1,0 +1,31 @@
+<main>    
+    
+  ... (product image code omitted) ...
+
+  <div id="column-right">
+    <h1>{{ product.title | escape }}</h1>
+    <h5>{{ product.vendor | escape }}</h5>
+    <h3>{% if product.price_varies %}{{ product.price_min | money }} - {{ product.price_max | money }}{% else %}{{ product.price | money }}{% endif %}</h3>
+
+    {{ product.description }}
+
+    <form action="/cart/add" method="post" role="form">
+
+      {%- if product.variants.size > 1 -%}
+        <label for="product-select">Select your {{ product.title | downcase }}</label>
+        <select id="product-select" name="id">
+          {%- for variant in product.variants -%}
+            <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title | escape }} - {{ variant.price | money }}</option>
+          {%- endfor -%}
+        </select>
+      {%- else =%}
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+      {%- endif -%}
+
+      <button type="submit" {% unless product.available %}disabled="disabled"{% endunless %}>Add to cart</button>
+
+    </form>
+    
+  </div>
+
+</main>

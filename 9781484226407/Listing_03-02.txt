@@ -1,0 +1,9 @@
+$ cd /projects
+$ mkdir /projects/example-theme
+$ cd ./example-theme
+$ theme configure --store example.myshopify.com --password 905bbb49ee10d0eb9c7b380183b2bc43 --themeid 74729482
+$ theme download layout/theme.liquid
+[development]: 1 / 1 [================] 100 %
+(… edit layout/theme.liquid …)
+$ theme upload layout/theme.liquid
+[development]: 1 / 1 [================] 100 %

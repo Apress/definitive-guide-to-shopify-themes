@@ -1,0 +1,10 @@
+/* assets/styles.scss.liquid */
+ // Liquidifstatement:
+body {
+  /* {% if settings.background-image %} */
+    background: url(#{'{{ settings.background-image | asset_url }}'}) center no-repeat;
+  /* {% else %} */
+    background: whitesmoke;
+  /* {% endif %} */
+}
+
